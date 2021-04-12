@@ -1,0 +1,17 @@
+version: "3"
+services:
+  redis:
+    build: redis/
+    command: redis-server --protected-mode no
+    ports:
+      - 6379:6379
+  php: 
+    build: php/
+    command: usr/bin/supervisord
+    links:
+      - redis
+    ports:
+      - 8080:80
+      - 443:443
+    depends_on:
+      - redis
