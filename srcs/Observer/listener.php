@@ -20,7 +20,7 @@ class Listener implements Observer
     {
         if ($obj instanceof Observer) {
             $redis = new Redis();
-            $redis->pconnect('127.0.0.1', 6379, 0, NULL, 0, 5);
+            $redis->pconnect(REDIS_HOST, REDIS_PORT);
             $redis->subscribe($this->channels, function ($redis, $chan, $msg) {
                 print $msg;
             });
