@@ -24,7 +24,6 @@ class ChatClient
         self::$redis->pconnect(REDIS_HOST, REDIS_PORT);
         self::$redis->subscribe($this->channels, function ($redis, $chan, $msg) {
             switch($chan) {
-                print "echo \n";
                 case 'USER':
                     print "USER: $msg \n";
                     break;
