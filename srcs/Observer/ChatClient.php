@@ -2,7 +2,7 @@
 
 namespace Observer;
 
-require (__DIR__.'/config.php');
+require __DIR__ . '/config.php';
 
 use SplObserver;
 use SplSubject;
@@ -12,10 +12,12 @@ class ChatClient implements SplObserver
     private $channels = array();
     private static $redis;
 
-    static function initRedis()
+    public static function initRedis()
     {
-        if (empty(self::$redis))
+        if (empty(self::$redis)) {
             self::$redis = new \Redis();
+        }
+
     }
 
     public function listen($channels)

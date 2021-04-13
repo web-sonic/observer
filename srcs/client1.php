@@ -1,12 +1,12 @@
 <?php
 
-spl_autoload_register(function($name) {
+spl_autoload_register(function ($name) {
     $name = str_replace('\\', '/', $name);
-    require_once( __DIR__ . "/$name.php"); 
+    require_once (__DIR__ . "/$name.php");
 });
 
-use Observer\ChatServer;
 use Observer\ChatClient;
+use Observer\ChatServer;
 
 $chatServer = new ChatServer();
 

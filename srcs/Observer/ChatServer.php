@@ -2,10 +2,9 @@
 
 namespace Observer;
 
-use SplSubject;
 use SplObjectStorage;
 use SplObserver;
-use Observer\Message;
+use SplSubject;
 
 class ChatServer implements SplSubject
 {
@@ -28,13 +27,13 @@ class ChatServer implements SplSubject
 
     public function generateEvent($event)
     {
-		$event->publish();
+        $event->publish();
     }
-	
+
     public function notify()
     {
         foreach ($this->observers as $observer) {
-			$observer->update($this);
+            $observer->update($this);
         }
     }
 }
